@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ─── BASE THEME ─────────────────────────────────────── */
+.light {
+  --bg:           #f5f5f5;
+  --text:         #1a1a1a;
+
+  /* surfaces */
+  --surface:      #ececec;
+  --surface-2:    #e2e2e2;
+
+  /* borders */
+  --border:       rgba(26,26,26,0.12);
+  --border-md:    rgba(26,26,26,0.25);
+  --border-strong:rgba(26,26,26,0.55);
+
+  /* text tones */
+  --text-dim:     rgba(26,26,26,0.4);
+  --text-muted:   rgba(26,26,26,0.22);
+
+  /* status */
+  --online:       #2a2a2a;
+
+  /* message bubbles */
+  --bubble-ai:    rgba(26,26,26,0.04);
+  --bubble-user:  rgba(26,26,26,0.07);
+
+  /* scrollbar */
+  --scrollbar:    rgba(26,26,26,0.15);
+
+  /* input */
+  --input-bg:     rgba(26,26,26,0.03);
+  --input-focus:  rgba(26,26,26,0.07);
+
+  /* chip */
+  --chip-hover:   rgba(26,26,26,0.08);
+
+  /* send button */
+  --send-bg:      #1a1a1a;
+  --send-text:    #f5f5f5;
+  --send-hover:   #333333;
+
+  /* scanline */
+  --scanline:     rgba(0,0,0,0.025);
+
+  /* grid dots */
+  --grid-dot:     rgba(26,26,26,0.07);
+}
+
+.dark {
+  --bg:           #121212;
+  --text:         #e0e0e0;
+
+  /* surfaces */
+  --surface:      #1a1a1a;
+  --surface-2:    #202020;
+
+  /* borders */
+  --border:       rgba(224,224,224,0.08);
+  --border-md:    rgba(224,224,224,0.18);
+  --border-strong:rgba(224,224,224,0.45);
+
+  /* text tones */
+  --text-dim:     rgba(224,224,224,0.38);
+  --text-muted:   rgba(224,224,224,0.18);
+
+  /* status */
+  --online:       #e0e0e0;
+
+  /* message bubbles */
+  --bubble-ai:    rgba(224,224,224,0.04);
+  --bubble-user:  rgba(224,224,224,0.06);
+
+  /* scrollbar */
+  --scrollbar:    rgba(224,224,224,0.12);
+
+  /* input */
+  --input-bg:     rgba(224,224,224,0.03);
+  --input-focus:  rgba(224,224,224,0.06);
+
+  /* chip */
+  --chip-hover:   rgba(224,224,224,0.07);
+
+  /* send button */
+  --send-bg:      #e0e0e0;
+  --send-text:    #121212;
+  --send-hover:   #ffffff;
+
+  /* scanline */
+  --scanline:     rgba(255,255,255,0.015);
+
+  /* grid dots */
+  --grid-dot:     rgba(224,224,224,0.04);
+}
+
+/* ─── GLOBAL ─────────────────────────────────────────── */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ─── SCROLLBAR ──────────────────────────────────────── */
+::-webkit-scrollbar        { width: 3px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: var(--scrollbar); border-radius: 2px; }
+* { scrollbar-width: thin; scrollbar-color: var(--scrollbar) transparent; }
+
+/* ─── ANIMATIONS ─────────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.25; }
+}
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes typeBounce {
+  0%, 100% { transform: translateY(0);   opacity: 0.35; }
+  50%       { transform: translateY(-5px); opacity: 1; }
+}
+@keyframes logoRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes scanMove {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(100vh); }
+}
+
+.animate-blink    { animation: blink 2s ease-in-out infinite; }
+.animate-msg-in   { animation: msgIn 0.28s ease forwards; }
+.animate-type-1   { animation: typeBounce 1.1s ease-in-out infinite; }
+.animate-type-2   { animation: typeBounce 1.1s ease-in-out 0.18s infinite; }
+.animate-type-3   { animation: typeBounce 1.1s ease-in-out 0.36s infinite; }
+.animate-logo     { animation: logoRotate 10s linear infinite; }
